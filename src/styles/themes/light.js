@@ -2,6 +2,7 @@ const lightTheme = {
   colors: {
     common: {
       black: '#000',
+      black40: '#D0D0D8',
       white: '#fff',
     },
     primary: {
@@ -19,7 +20,7 @@ const lightTheme = {
       light: '#FDEEED',
     },
     background: {
-      default: '#E5E5E5',
+      default: '#F5F5F7',
       paper: '#fff',
     },
     text: {

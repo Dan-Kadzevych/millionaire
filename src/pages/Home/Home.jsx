@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import logo from 'assets/images/hand.png';
@@ -40,7 +41,9 @@ function Home() {
         <Image src={logo} alt="" />
         <TextContent>
           <H1>Who wants to be a millionaire?</H1>
-          <Button>Start</Button>
+          <Button as={Link} to="/game">
+            Start
+          </Button>
         </TextContent>
       </ContentContainer>
     </Container>
