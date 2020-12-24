@@ -1,5 +1,13 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
+
+import {
+  getActiveQuestion,
+  getSortedActiveQuestionAnswers,
+  getSelectedAnswerIds,
+} from 'store/game/selectors';
+import { chooseAnswer } from 'store/game/operations';
 
 const Container = styled.div`
   display: flex;
@@ -31,10 +39,39 @@ const Answers = styled.div`
 
 const AnswerCell = styled.div`
   cursor: pointer;
-  background-color: ${({ theme }) => theme.colors.common.white};
+  background-color: ${({ theme, selected, correct, wrong }) => {
+    if (selected) {
+      return theme.colors.primary.xLight;
+    }
+
+    if (correct) {
+      return theme.colors.success.light;
+    }
+
+    if (wrong) {
+      return theme.colors.error.light;
+    }
+
+    return theme.colors.common.white;
+  }};
   position: relative;
   padding: 2.45rem 3.2rem;
-  border: 1px solid ${({ theme }) => theme.colors.common.black40};
+  border: 1px solid
+    ${({ theme, selected, correct, wrong }) => {
+      if (selected) {
+        return theme.colors.primary.main;
+      }
+
+      if (correct) {
+        return theme.colors.success.main;
+      }
+
+      if (wrong) {
+        return theme.colors.error.main;
+      }
+
+      return theme.colors.common.black40;
+    }};
 
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.primary.main};
@@ -47,15 +84,25 @@ const AnswerSymbol = styled.span`
 `;
 
 function GameZone() {
+  const dispatch = useDispatch();
+  const question = useSelector(getActiveQuestion);
+  const possibleAnswers = useSelector(getSortedActiveQuestionAnswers);
+  const selectedAnswerIds = useSelector(getSelectedAnswerIds);
+
   return (
     <Container>
-      <Question>
-        How old your elder brother was 10 years before you was born, mate?
-      </Question>
+      <Question>{question.text}</Question>
       <Answers>
-        <AnswerCell>
-          <AnswerSymbol>A</AnswerSymbol>10 years
-        </AnswerCell>
+        {possibleAnswers.map(({ id, label, text }) => (
+          <AnswerCell
+            selected={selectedAnswerIds.includes(id)}
+            onClick={() => dispatch(chooseAnswer(id))}
+            key={id}
+          >
+            <AnswerSymbol>{label}</AnswerSymbol>
+            {text}
+          </AnswerCell>
+        ))}
       </Answers>
     </Container>
   );

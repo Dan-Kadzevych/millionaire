@@ -1,17 +1,28 @@
 import { normalize } from 'normalizr';
 
 import { fetchGameConfig } from 'api/requests';
+import { areArraysEqual } from 'utils/helpers';
 import {
-  getGameConfigRequest,
-  getGameConfigSuccess,
-  getGameConfigError,
+  resetGameState,
+  initializeGameRequest,
+  initializeGameSuccess,
+  initializeGameFailure,
+  addAnswer,
+  setActiveQuestionId,
 } from './actions';
 import { gameConfigSchema } from './schemas';
+import {
+  getActiveQuestionCorrectAnswerIds,
+  getSelectedAnswerIds,
+  getSortedQuestionsList,
+  getActiveQuestionId,
+} from './selectors';
 
-function getGameConfig() {
+function initializeGame() {
   return async (dispatch) => {
     try {
-      dispatch(getGameConfigRequest());
+      dispatch(resetGameState());
+      dispatch(initializeGameRequest());
 
       const config = await fetchGameConfig();
 
@@ -23,11 +34,47 @@ function getGameConfig() {
         result: { ...data.result, answers: answerIds },
       };
 
-      dispatch(getGameConfigSuccess(formattedData));
+      dispatch(initializeGameSuccess(formattedData));
     } catch (e) {
-      dispatch(getGameConfigError());
+      dispatch(initializeGameFailure());
     }
   };
 }
 
-export { getGameConfig };
+function goNextQuestion() {
+  return (dispatch, getState) => {
+    const state = getState();
+    const questions = getSortedQuestionsList(state);
+    const activeQuestionId = getActiveQuestionId(state);
+
+    const indexOfActiveQuestion = questions.findIndex(
+      ({ id }) => id === activeQuestionId,
+    );
+    const indexOfNextQuestion = indexOfActiveQuestion + 1;
+    const nextQuestion = questions[indexOfNextQuestion];
+
+    if (indexOfNextQuestion < questions.length && nextQuestion) {
+      dispatch(setActiveQuestionId(nextQuestion.id));
+    }
+  };
+}
+
+function chooseAnswer(id) {
+  return (dispatch, getState) => {
+    dispatch(addAnswer(id));
+
+    const state = getState();
+    const correctAnswerIds = getActiveQuestionCorrectAnswerIds(state);
+    const selectedAnswerIds = getSelectedAnswerIds(state);
+
+    if (!correctAnswerIds.includes(id)) {
+      return;
+    }
+
+    if (areArraysEqual(correctAnswerIds, selectedAnswerIds)) {
+      dispatch(goNextQuestion());
+    }
+  };
+}
+
+export { chooseAnswer, initializeGame };

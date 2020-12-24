@@ -10,21 +10,25 @@
         {
           "id": "1",
           "text": "Kyiv",
+          "label": "A",
           "orderPosition": "1"
         },
         {
           "id": "2",
           "text": "Odessa",
+          "label": "B",
           "orderPosition": "2"
         },
         {
           "id": "3",
           "text": "Moscow",
+          "label": "C",
           "orderPosition": "3"
         },
         {
           "id": "4",
           "text": "New York",
+          "label": "D",
           "orderPosition": "4"
         }
       ]
@@ -32,33 +36,38 @@
     {
       "id": "2",
       "text": "Choose the cities of Ukraine",
-      "correctAnswerIds": ["6", "9"],
+      "correctAnswerIds": ["6"],
       "orderPosition": "2",
       "prize": "10000$",
       "answers": [
         {
           "id": "5",
           "text": "Los-Angeles",
+          "label": "A",
           "orderPosition": "1"
         },
         {
           "id": "6",
           "text": "Rivne",
+          "label": "B",
           "orderPosition": "2"
         },
         {
           "id": "7",
-          "text": "Odessa",
+          "text": "Uganda",
+          "label": "C",
           "orderPosition": "3"
         },
         {
           "id": "8",
           "text": "New York",
+          "label": "D",
           "orderPosition": "4"
         },
         {
           "id": "9",
-          "text": "Uganda",
+          "text": "Odessa",
+          "label": "E",
           "orderPosition": "5"
         }
       ]

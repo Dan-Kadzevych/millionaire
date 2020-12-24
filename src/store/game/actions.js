@@ -1,28 +1,58 @@
 import {
-  GET_GAME_CONFIG_REQUEST,
-  GET_GAME_CONFIG_SUCCESS,
-  GET_GAME_CONFIG_FAILURE,
+  RESET_GAME_STATE,
+  INITIALIZE_GAME_REQUEST,
+  INITIALIZE_GAME_SUCCESS,
+  INITIALIZE_GAME_FAILURE,
+  ADD_ANSWER,
+  SET_ACTIVE_QUESTION_ID,
 } from './types';
 
-function getGameConfigRequest() {
+function resetGameState() {
   return {
-    type: GET_GAME_CONFIG_REQUEST,
+    type: RESET_GAME_STATE,
   };
 }
 
-function getGameConfigSuccess(data) {
+function initializeGameRequest() {
   return {
-    type: GET_GAME_CONFIG_SUCCESS,
+    type: INITIALIZE_GAME_REQUEST,
+  };
+}
+
+function initializeGameSuccess(data) {
+  return {
+    type: INITIALIZE_GAME_SUCCESS,
     payload: {
       data,
     },
   };
 }
 
-function getGameConfigError() {
+function initializeGameFailure() {
   return {
-    type: GET_GAME_CONFIG_FAILURE,
+    type: INITIALIZE_GAME_FAILURE,
   };
 }
 
-export { getGameConfigRequest, getGameConfigSuccess, getGameConfigError };
+function addAnswer(id) {
+  return {
+    type: ADD_ANSWER,
+    payload: { id },
+  };
+}
+
+function setActiveQuestionId(id) {
+  return {
+    type: SET_ACTIVE_QUESTION_ID,
+    payload: { id },
+  };
+}
+
+export {
+  resetGameState,
+  initializeGameRequest,
+  initializeGameSuccess,
+  initializeGameFailure,
+  addAnswer,
+  setActiveQuestionId,
+};

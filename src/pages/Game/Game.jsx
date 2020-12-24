@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import { getGameConfig } from 'store/game/operations';
+import { initializeGame } from 'store/game/operations';
+import { getIsConfigLoading } from 'store/game/selectors';
 import { GameZone, PrizesZone } from './components';
 
 const Container = styled.div`
@@ -12,10 +13,15 @@ const Container = styled.div`
 
 function Game() {
   const dispatch = useDispatch();
+  const isLoading = useSelector(getIsConfigLoading);
 
   useEffect(() => {
-    dispatch(getGameConfig());
+    dispatch(initializeGame());
   }, []);
+
+  if (isLoading) {
+    return <div>Loading</div>;
+  }
 
   return (
     <Container>

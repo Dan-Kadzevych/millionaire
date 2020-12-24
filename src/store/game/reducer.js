@@ -1,10 +1,12 @@
-import { combineReducers } from 'redux';
-
 import createReducer from 'utils/redux/createReducer';
+import { sortByOrder } from 'utils/helpers';
 import {
-  GET_GAME_CONFIG_REQUEST,
-  GET_GAME_CONFIG_SUCCESS,
-  GET_GAME_CONFIG_FAILURE,
+  RESET_GAME_STATE,
+  INITIALIZE_GAME_REQUEST,
+  INITIALIZE_GAME_SUCCESS,
+  INITIALIZE_GAME_FAILURE,
+  ADD_ANSWER,
+  SET_ACTIVE_QUESTION_ID,
 } from './types';
 
 const initialState = {
@@ -17,72 +19,68 @@ const initialState = {
     byId: {},
     allIds: {},
   },
+  activeQuestionId: undefined,
+  selectedAnswerIds: [],
 };
 
-function finishLoading() {
-  return false;
+function resetGameState() {
+  return initialState;
 }
 
-function startLoading() {
-  return true;
+function finishLoading(state = initialState) {
+  return { ...state, isLoading: false };
 }
 
-function getQuestionsSuccess(
-  state = initialState.questions,
+function startLoading(state = initialState) {
+  return { ...state, isLoading: true };
+}
+
+function initializeGameSuccess(
+  state = initialState,
   {
     payload: {
       data: {
-        entities: { questions: questionsById },
-        result: { questions: questionIds },
+        entities: { questions: questionsById, answers: answersById },
+        result: { questions: questionIds, answers: answerIds },
       },
     },
   },
 ) {
-  return { ...state, byId: questionsById, allIds: questionIds };
+  const firstQuestion = questionIds
+    .map((id) => questionsById[id])
+    .sort(sortByOrder)[0];
+
+  return {
+    ...state,
+    isLoading: false,
+    questions: { byId: questionsById, allIds: questionIds },
+    answers: { byId: answersById, allIds: answerIds },
+    activeQuestionId: firstQuestion.id,
+  };
 }
 
-function getAnswersSuccess(
-  state = initialState.answers,
-  {
-    payload: {
-      data: {
-        entities: { answers: answersById },
-        result: { answers: answerIds },
-      },
-    },
-  },
-) {
-  return { ...state, byId: answersById, allIds: answerIds };
+function addAnswer(state, { payload: { id } }) {
+  return {
+    ...state,
+    selectedAnswerIds: [...state.selectedAnswerIds, id],
+  };
 }
 
-const isLoadingHandlers = {
-  [GET_GAME_CONFIG_REQUEST]: startLoading,
-  [GET_GAME_CONFIG_SUCCESS]: finishLoading,
-  [GET_GAME_CONFIG_FAILURE]: finishLoading,
+function setActiveQuestionId(state, { payload: { id } }) {
+  return {
+    ...state,
+    activeQuestionId: id,
+    selectedAnswerIds: [],
+  };
+}
+
+const handlers = {
+  [RESET_GAME_STATE]: resetGameState,
+  [INITIALIZE_GAME_REQUEST]: startLoading,
+  [INITIALIZE_GAME_SUCCESS]: initializeGameSuccess,
+  [INITIALIZE_GAME_FAILURE]: finishLoading,
+  [ADD_ANSWER]: addAnswer,
+  [SET_ACTIVE_QUESTION_ID]: setActiveQuestionId,
 };
 
-const questionHandlers = {
-  [GET_GAME_CONFIG_SUCCESS]: getQuestionsSuccess,
-};
-
-const answerHandlers = {
-  [GET_GAME_CONFIG_SUCCESS]: getAnswersSuccess,
-};
-
-const isLoadingReducer = createReducer(
-  initialState.isLoading,
-  isLoadingHandlers,
-);
-
-const questionsReducer = createReducer(
-  initialState.questions,
-  questionHandlers,
-);
-
-const answersReducer = createReducer(initialState.answers, answerHandlers);
-
-export default combineReducers({
-  isLoading: isLoadingReducer,
-  questions: questionsReducer,
-  answers: answersReducer,
-});
+export default createReducer(initialState, handlers);
