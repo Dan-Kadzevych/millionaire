@@ -1,4 +1,4 @@
-const prefix = '[Game Reducer]';
+const prefix = '[Game]';
 
 const RESET_GAME_STATE = `${prefix} Reset Game State`;
 

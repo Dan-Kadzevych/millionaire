@@ -5,7 +5,7 @@
       "text": "What is the capital of Ukraine?",
       "correctAnswerIds": ["1"],
       "orderPosition": "1",
-      "prize": "4,000$",
+      "prize": "$500",
       "answers": [
         {
           "id": "1",
@@ -35,10 +35,43 @@
     },
     {
       "id": "2",
+      "text": "What is the capital of Ukraine?",
+      "correctAnswerIds": ["342"],
+      "orderPosition": "1",
+      "prize": "$1,000",
+      "answers": [
+        {
+          "id": "342",
+          "text": "Kyiv",
+          "label": "A",
+          "orderPosition": "1"
+        },
+        {
+          "id": "341",
+          "text": "Odessa",
+          "label": "B",
+          "orderPosition": "2"
+        },
+        {
+          "id": "345",
+          "text": "Moscow",
+          "label": "C",
+          "orderPosition": "3"
+        },
+        {
+          "id": "343",
+          "text": "New York",
+          "label": "D",
+          "orderPosition": "4"
+        }
+      ]
+    },
+    {
+      "id": "3",
       "text": "Choose the cities of Ukraine",
       "correctAnswerIds": ["6"],
       "orderPosition": "2",
-      "prize": "10,000$",
+      "prize": "$2,000",
       "answers": [
         {
           "id": "5",
@@ -60,6 +93,303 @@
         },
         {
           "id": "8",
+          "text": "New York",
+          "label": "D",
+          "orderPosition": "4"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "text": "Choose the cities of Ukraine",
+      "correctAnswerIds": ["10"],
+      "orderPosition": "2",
+      "prize": "$4,000",
+      "answers": [
+        {
+          "id": "9",
+          "text": "Los-Angeles",
+          "label": "A",
+          "orderPosition": "1"
+        },
+        {
+          "id": "10",
+          "text": "Rivne",
+          "label": "B",
+          "orderPosition": "2"
+        },
+        {
+          "id": "11",
+          "text": "Uganda",
+          "label": "C",
+          "orderPosition": "3"
+        },
+        {
+          "id": "12",
+          "text": "New York",
+          "label": "D",
+          "orderPosition": "4"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "text": "Choose the cities of Ukraine",
+      "correctAnswerIds": ["14"],
+      "orderPosition": "2",
+      "prize": "$8,000",
+      "answers": [
+        {
+          "id": "13",
+          "text": "Los-Angeles",
+          "label": "A",
+          "orderPosition": "1"
+        },
+        {
+          "id": "14",
+          "text": "Rivne",
+          "label": "B",
+          "orderPosition": "2"
+        },
+        {
+          "id": "15",
+          "text": "Uganda",
+          "label": "C",
+          "orderPosition": "3"
+        },
+        {
+          "id": "16",
+          "text": "New York",
+          "label": "D",
+          "orderPosition": "4"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "text": "Choose the cities of Ukraine",
+      "correctAnswerIds": ["18"],
+      "orderPosition": "2",
+      "prize": "$16,000",
+      "answers": [
+        {
+          "id": "17",
+          "text": "Los-Angeles",
+          "label": "A",
+          "orderPosition": "1"
+        },
+        {
+          "id": "18",
+          "text": "Rivne",
+          "label": "B",
+          "orderPosition": "2"
+        },
+        {
+          "id": "19",
+          "text": "Uganda",
+          "label": "C",
+          "orderPosition": "3"
+        },
+        {
+          "id": "20",
+          "text": "New York",
+          "label": "D",
+          "orderPosition": "4"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "text": "Choose the cities of Ukraine",
+      "correctAnswerIds": ["22"],
+      "orderPosition": "2",
+      "prize": "$32,000",
+      "answers": [
+        {
+          "id": "21",
+          "text": "Los-Angeles",
+          "label": "A",
+          "orderPosition": "1"
+        },
+        {
+          "id": "22",
+          "text": "Rivne",
+          "label": "B",
+          "orderPosition": "2"
+        },
+        {
+          "id": "23",
+          "text": "Uganda",
+          "label": "C",
+          "orderPosition": "3"
+        },
+        {
+          "id": "24",
+          "text": "New York",
+          "label": "D",
+          "orderPosition": "4"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "text": "Choose the cities of Ukraine",
+      "correctAnswerIds": ["26"],
+      "orderPosition": "2",
+      "prize": "$64,000",
+      "answers": [
+        {
+          "id": "25",
+          "text": "Los-Angeles",
+          "label": "A",
+          "orderPosition": "1"
+        },
+        {
+          "id": "26",
+          "text": "Rivne",
+          "label": "B",
+          "orderPosition": "2"
+        },
+        {
+          "id": "27",
+          "text": "Uganda",
+          "label": "C",
+          "orderPosition": "3"
+        },
+        {
+          "id": "28",
+          "text": "New York",
+          "label": "D",
+          "orderPosition": "4"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "text": "Choose the cities of Ukraine",
+      "correctAnswerIds": ["30"],
+      "orderPosition": "2",
+      "prize": "$125,000",
+      "answers": [
+        {
+          "id": "29",
+          "text": "Los-Angeles",
+          "label": "A",
+          "orderPosition": "1"
+        },
+        {
+          "id": "30",
+          "text": "Rivne",
+          "label": "B",
+          "orderPosition": "2"
+        },
+        {
+          "id": "31",
+          "text": "Uganda",
+          "label": "C",
+          "orderPosition": "3"
+        },
+        {
+          "id": "32",
+          "text": "New York",
+          "label": "D",
+          "orderPosition": "4"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "text": "Choose the cities of Ukraine",
+      "correctAnswerIds": ["123"],
+      "orderPosition": "2",
+      "prize": "$250,000",
+      "answers": [
+        {
+          "id": "111",
+          "text": "Los-Angeles",
+          "label": "A",
+          "orderPosition": "1"
+        },
+        {
+          "id": "123",
+          "text": "Rivne",
+          "label": "B",
+          "orderPosition": "2"
+        },
+        {
+          "id": "341",
+          "text": "Uganda",
+          "label": "C",
+          "orderPosition": "3"
+        },
+        {
+          "id": "90",
+          "text": "New York",
+          "label": "D",
+          "orderPosition": "4"
+        }
+      ]
+    },
+    {
+      "id": "103",
+      "text": "Choose the cities of Ukraine",
+      "correctAnswerIds": ["63"],
+      "orderPosition": "2",
+      "prize": "$500,000",
+      "answers": [
+        {
+          "id": "54",
+          "text": "Los-Angeles",
+          "label": "A",
+          "orderPosition": "1"
+        },
+        {
+          "id": "63",
+          "text": "Rivne",
+          "label": "B",
+          "orderPosition": "2"
+        },
+        {
+          "id": "210",
+          "text": "Uganda",
+          "label": "C",
+          "orderPosition": "3"
+        },
+        {
+          "id": "511",
+          "text": "New York",
+          "label": "D",
+          "orderPosition": "4"
+        }
+      ]
+    },
+    {
+      "id": "33",
+      "text": "Choose the cities of Ukraine",
+      "correctAnswerIds": ["72"],
+      "orderPosition": "2",
+      "prize": "$1,000,000",
+      "answers": [
+        {
+          "id": "71",
+          "text": "Los-Angeles",
+          "label": "A",
+          "orderPosition": "1"
+        },
+        {
+          "id": "72",
+          "text": "Rivne",
+          "label": "B",
+          "orderPosition": "2"
+        },
+        {
+          "id": "73",
+          "text": "Uganda",
+          "label": "C",
+          "orderPosition": "3"
+        },
+        {
+          "id": "74",
           "text": "New York",
           "label": "D",
           "orderPosition": "4"
