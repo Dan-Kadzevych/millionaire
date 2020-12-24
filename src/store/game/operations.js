@@ -1,21 +1,24 @@
 import { normalize } from 'normalizr';
 
 import { fetchGameConfig } from 'api/requests';
-import { areArraysEqual } from 'utils/helpers';
+import { AFTER_ANSWER_DELAY } from 'constants/timouts';
 import {
   resetGameState,
   initializeGameRequest,
   initializeGameSuccess,
   initializeGameFailure,
-  addAnswer,
+  setAnswerId,
   setActiveQuestionId,
+  setIsQuestionResultVisible,
+  setScore,
 } from './actions';
 import { gameConfigSchema } from './schemas';
 import {
   getActiveQuestionCorrectAnswerIds,
-  getSelectedAnswerIds,
+  getSelectedAnswerId,
   getSortedQuestionsList,
   getActiveQuestionId,
+  getActiveQuestion,
 } from './selectors';
 
 function initializeGame() {
@@ -41,7 +44,7 @@ function initializeGame() {
   };
 }
 
-function goNextQuestion() {
+function goNextQuestion(history) {
   return (dispatch, getState) => {
     const state = getState();
     const questions = getSortedQuestionsList(state);
@@ -54,26 +57,35 @@ function goNextQuestion() {
     const nextQuestion = questions[indexOfNextQuestion];
 
     if (indexOfNextQuestion < questions.length && nextQuestion) {
+      dispatch(setAnswerId(undefined));
       dispatch(setActiveQuestionId(nextQuestion.id));
+    } else {
+      history.push('/final');
     }
   };
 }
 
-function chooseAnswer(id) {
+function chooseAnswer(id, history) {
   return (dispatch, getState) => {
-    dispatch(addAnswer(id));
+    dispatch(setAnswerId(id));
 
     const state = getState();
     const correctAnswerIds = getActiveQuestionCorrectAnswerIds(state);
-    const selectedAnswerIds = getSelectedAnswerIds(state);
+    const selectedAnswerId = getSelectedAnswerId(state);
+    const activeQuestion = getActiveQuestion(state);
 
-    if (!correctAnswerIds.includes(id)) {
-      return;
-    }
-
-    if (areArraysEqual(correctAnswerIds, selectedAnswerIds)) {
-      dispatch(goNextQuestion());
-    }
+    setTimeout(() => {
+      dispatch(setIsQuestionResultVisible(true));
+      setTimeout(() => {
+        if (correctAnswerIds.includes(selectedAnswerId)) {
+          dispatch(setIsQuestionResultVisible(false));
+          dispatch(setScore(activeQuestion.prize));
+          dispatch(goNextQuestion(history));
+        } else {
+          history.push('/final');
+        }
+      }, AFTER_ANSWER_DELAY);
+    }, AFTER_ANSWER_DELAY);
   };
 }
 

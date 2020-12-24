@@ -1,11 +1,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import {
   getActiveQuestion,
   getSortedActiveQuestionAnswers,
-  getSelectedAnswerIds,
+  getSelectedAnswerId,
+  getActiveQuestionCorrectAnswerIds,
+  getIsQuestionResultVisible,
 } from 'store/game/selectors';
 import { chooseAnswer } from 'store/game/operations';
 
@@ -40,10 +43,6 @@ const Answers = styled.div`
 const AnswerCell = styled.div`
   cursor: pointer;
   background-color: ${({ theme, selected, correct, wrong }) => {
-    if (selected) {
-      return theme.colors.primary.xLight;
-    }
-
     if (correct) {
       return theme.colors.success.light;
     }
@@ -52,16 +51,16 @@ const AnswerCell = styled.div`
       return theme.colors.error.light;
     }
 
+    if (selected) {
+      return theme.colors.primary.xLight;
+    }
+
     return theme.colors.common.white;
   }};
   position: relative;
   padding: 2.45rem 3.2rem;
   border: 1px solid
     ${({ theme, selected, correct, wrong }) => {
-      if (selected) {
-        return theme.colors.primary.main;
-      }
-
       if (correct) {
         return theme.colors.success.main;
       }
@@ -70,11 +69,26 @@ const AnswerCell = styled.div`
         return theme.colors.error.main;
       }
 
+      if (selected) {
+        return theme.colors.primary.main;
+      }
+
       return theme.colors.common.black40;
     }};
 
   &:hover {
-    border: 1px solid ${({ theme }) => theme.colors.primary.main};
+    border: 1px solid
+      ${({ theme, correct, wrong }) => {
+        if (correct) {
+          return theme.colors.success.main;
+        }
+
+        if (wrong) {
+          return theme.colors.error.main;
+        }
+
+        return theme.colors.primary.main;
+      }};
   }
 `;
 
@@ -84,10 +98,13 @@ const AnswerSymbol = styled.span`
 `;
 
 function GameZone() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const question = useSelector(getActiveQuestion);
   const possibleAnswers = useSelector(getSortedActiveQuestionAnswers);
-  const selectedAnswerIds = useSelector(getSelectedAnswerIds);
+  const correctAnswerIds = useSelector(getActiveQuestionCorrectAnswerIds);
+  const isQuestionResultVisible = useSelector(getIsQuestionResultVisible);
+  const selectedAnswerId = useSelector(getSelectedAnswerId);
 
   return (
     <Container>
@@ -95,8 +112,18 @@ function GameZone() {
       <Answers>
         {possibleAnswers.map(({ id, label, text }) => (
           <AnswerCell
-            selected={selectedAnswerIds.includes(id)}
-            onClick={() => dispatch(chooseAnswer(id))}
+            correct={isQuestionResultVisible && correctAnswerIds.includes(id)}
+            wrong={
+              isQuestionResultVisible &&
+              selectedAnswerId === id &&
+              !correctAnswerIds.includes(id)
+            }
+            selected={selectedAnswerId === id}
+            onClick={() => {
+              if (!selectedAnswerId) {
+                dispatch(chooseAnswer(id, history));
+              }
+            }}
             key={id}
           >
             <AnswerSymbol>{label}</AnswerSymbol>

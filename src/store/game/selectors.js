@@ -7,7 +7,10 @@ const getQuestionsIds = (state) => state.game.questions.allIds;
 const getActiveQuestionId = (state) => state.game.activeQuestionId;
 const getAnswersById = (state) => state.game.answers.byId;
 const getIsConfigLoading = (state) => state.game.isLoading;
-const getSelectedAnswerIds = (state) => state.game.selectedAnswerIds;
+const getSelectedAnswerId = (state) => state.game.selectedAnswerId;
+const getIsQuestionResultVisible = (state) =>
+  state.game.isQuestionResultVisible;
+const getScore = (state) => state.game.score;
 
 const getSortedQuestionsList = createSelector(
   getQuestionsById,
@@ -53,11 +56,13 @@ const getAnsweredQuestionsIds = createSelector(
 
 export {
   getActiveQuestion,
-  getSelectedAnswerIds,
+  getSelectedAnswerId,
   getIsConfigLoading,
   getSortedActiveQuestionAnswers,
   getActiveQuestionCorrectAnswerIds,
   getActiveQuestionId,
   getSortedQuestionsList,
   getAnsweredQuestionsIds,
+  getIsQuestionResultVisible,
+  getScore,
 };

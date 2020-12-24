@@ -5,8 +5,10 @@ import {
   INITIALIZE_GAME_REQUEST,
   INITIALIZE_GAME_SUCCESS,
   INITIALIZE_GAME_FAILURE,
-  ADD_ANSWER,
+  SET_ANSWER_ID,
   SET_ACTIVE_QUESTION_ID,
+  SET_IS_QUESTION_RESULT_VISIBLE,
+  SET_SCORE,
 } from './types';
 
 const initialState = {
@@ -20,7 +22,9 @@ const initialState = {
     allIds: {},
   },
   activeQuestionId: undefined,
-  selectedAnswerIds: [],
+  selectedAnswerId: undefined,
+  isQuestionResultVisible: false,
+  score: undefined,
 };
 
 function resetGameState() {
@@ -56,13 +60,14 @@ function initializeGameSuccess(
     questions: { byId: questionsById, allIds: questionIds },
     answers: { byId: answersById, allIds: answerIds },
     activeQuestionId: firstQuestion.id,
+    score: '$0',
   };
 }
 
-function addAnswer(state, { payload: { id } }) {
+function setAnswerId(state, { payload: { id } }) {
   return {
     ...state,
-    selectedAnswerIds: [...state.selectedAnswerIds, id],
+    selectedAnswerId: id,
   };
 }
 
@@ -70,7 +75,20 @@ function setActiveQuestionId(state, { payload: { id } }) {
   return {
     ...state,
     activeQuestionId: id,
-    selectedAnswerIds: [],
+  };
+}
+
+function setIsQuestionResultVisible(state, { payload: { isVisible } }) {
+  return {
+    ...state,
+    isQuestionResultVisible: isVisible,
+  };
+}
+
+function setScore(state, { payload: { score } }) {
+  return {
+    ...state,
+    score,
   };
 }
 
@@ -79,8 +97,10 @@ const handlers = {
   [INITIALIZE_GAME_REQUEST]: startLoading,
   [INITIALIZE_GAME_SUCCESS]: initializeGameSuccess,
   [INITIALIZE_GAME_FAILURE]: finishLoading,
-  [ADD_ANSWER]: addAnswer,
+  [SET_ANSWER_ID]: setAnswerId,
   [SET_ACTIVE_QUESTION_ID]: setActiveQuestionId,
+  [SET_IS_QUESTION_RESULT_VISIBLE]: setIsQuestionResultVisible,
+  [SET_SCORE]: setScore,
 };
 
 export default createReducer(initialState, handlers);

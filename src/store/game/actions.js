@@ -3,8 +3,10 @@ import {
   INITIALIZE_GAME_REQUEST,
   INITIALIZE_GAME_SUCCESS,
   INITIALIZE_GAME_FAILURE,
-  ADD_ANSWER,
+  SET_ANSWER_ID,
   SET_ACTIVE_QUESTION_ID,
+  SET_IS_QUESTION_RESULT_VISIBLE,
+  SET_SCORE,
 } from './types';
 
 function resetGameState() {
@@ -34,9 +36,9 @@ function initializeGameFailure() {
   };
 }
 
-function addAnswer(id) {
+function setAnswerId(id) {
   return {
-    type: ADD_ANSWER,
+    type: SET_ANSWER_ID,
     payload: { id },
   };
 }
@@ -48,11 +50,27 @@ function setActiveQuestionId(id) {
   };
 }
 
+function setIsQuestionResultVisible(isVisible) {
+  return {
+    type: SET_IS_QUESTION_RESULT_VISIBLE,
+    payload: { isVisible },
+  };
+}
+
+function setScore(score) {
+  return {
+    type: SET_SCORE,
+    payload: { score },
+  };
+}
+
 export {
   resetGameState,
   initializeGameRequest,
   initializeGameSuccess,
   initializeGameFailure,
-  addAnswer,
+  setAnswerId,
   setActiveQuestionId,
+  setIsQuestionResultVisible,
+  setScore,
 };
