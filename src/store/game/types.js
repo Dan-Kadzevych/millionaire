@@ -11,6 +11,8 @@ const SET_ACTIVE_QUESTION_ID = `${prefix} Set Active Question Id`;
 const SET_IS_QUESTION_RESULT_VISIBLE = `${prefix} Set Show Correct Answer`;
 const SET_SCORE = `${prefix} Set Score`;
 
+const SET_SHOULD_BLOCK_NAVIGATION = `${prefix} Set Should Block Navigation`;
+
 export {
   RESET_GAME_STATE,
   INITIALIZE_GAME_REQUEST,
@@ -20,4 +22,5 @@ export {
   SET_ACTIVE_QUESTION_ID,
   SET_IS_QUESTION_RESULT_VISIBLE,
   SET_SCORE,
+  SET_SHOULD_BLOCK_NAVIGATION,
 };

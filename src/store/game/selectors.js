@@ -11,6 +11,7 @@ const getSelectedAnswerId = (state) => state.game.selectedAnswerId;
 const getIsQuestionResultVisible = (state) =>
   state.game.isQuestionResultVisible;
 const getScore = (state) => state.game.score;
+const getShouldBlockNavigation = (state) => state.game.shouldBlockNavigation;
 
 const getSortedQuestionsList = createSelector(
   getQuestionsById,
@@ -65,4 +66,5 @@ export {
   getAnsweredQuestionsIds,
   getIsQuestionResultVisible,
   getScore,
+  getShouldBlockNavigation,
 };

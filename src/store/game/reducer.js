@@ -9,6 +9,7 @@ import {
   SET_ACTIVE_QUESTION_ID,
   SET_IS_QUESTION_RESULT_VISIBLE,
   SET_SCORE,
+  SET_SHOULD_BLOCK_NAVIGATION,
 } from './types';
 
 const initialState = {
@@ -25,6 +26,7 @@ const initialState = {
   selectedAnswerId: undefined,
   isQuestionResultVisible: false,
   score: undefined,
+  shouldBlockNavigation: false,
 };
 
 function resetGameState() {
@@ -61,6 +63,7 @@ function initializeGameSuccess(
     answers: { byId: answersById, allIds: answerIds },
     activeQuestionId: firstQuestion.id,
     score: '$0',
+    shouldBlockNavigation: true,
   };
 }
 
@@ -92,6 +95,13 @@ function setScore(state, { payload: { score } }) {
   };
 }
 
+function setShouldBlockNavigation(state, { payload: { shouldBlock } }) {
+  return {
+    ...state,
+    shouldBlockNavigation: shouldBlock,
+  };
+}
+
 const handlers = {
   [RESET_GAME_STATE]: resetGameState,
   [INITIALIZE_GAME_REQUEST]: startLoading,
@@ -101,6 +111,7 @@ const handlers = {
   [SET_ACTIVE_QUESTION_ID]: setActiveQuestionId,
   [SET_IS_QUESTION_RESULT_VISIBLE]: setIsQuestionResultVisible,
   [SET_SCORE]: setScore,
+  [SET_SHOULD_BLOCK_NAVIGATION]: setShouldBlockNavigation,
 };
 
 export default createReducer(initialState, handlers);

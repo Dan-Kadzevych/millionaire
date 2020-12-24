@@ -1,9 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { Prompt } from 'react-router-dom';
+import { useBeforeunload } from 'react-beforeunload';
 
 import { initializeGame } from 'store/game/operations';
-import { getIsConfigLoading } from 'store/game/selectors';
+import {
+  getIsConfigLoading,
+  getShouldBlockNavigation,
+} from 'store/game/selectors';
 import { GameZone, PrizesZone } from './components';
 
 const Container = styled.div`
@@ -14,10 +19,13 @@ const Container = styled.div`
 function Game() {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsConfigLoading);
+  const shouldBlockNavigation = useSelector(getShouldBlockNavigation);
 
   useEffect(() => {
     dispatch(initializeGame());
   }, []);
+
+  useBeforeunload(() => "You'll lose your progress!");
 
   if (isLoading) {
     return <div>Loading</div>;
@@ -25,6 +33,10 @@ function Game() {
 
   return (
     <Container>
+      <Prompt
+        when={shouldBlockNavigation}
+        message="You'll lose your progress!"
+      />
       <GameZone />
       <PrizesZone />
     </Container>

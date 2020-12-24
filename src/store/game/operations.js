@@ -11,6 +11,7 @@ import {
   setActiveQuestionId,
   setIsQuestionResultVisible,
   setScore,
+  setShouldBlockNavigation,
 } from './actions';
 import { gameConfigSchema } from './schemas';
 import {
@@ -60,6 +61,7 @@ function goNextQuestion(history) {
       dispatch(setAnswerId(undefined));
       dispatch(setActiveQuestionId(nextQuestion.id));
     } else {
+      dispatch(setShouldBlockNavigation(false));
       history.push('/final');
     }
   };
@@ -82,6 +84,7 @@ function chooseAnswer(id, history) {
           dispatch(setScore(activeQuestion.prize));
           dispatch(goNextQuestion(history));
         } else {
+          dispatch(setShouldBlockNavigation(false));
           history.push('/final');
         }
       }, AFTER_ANSWER_DELAY);

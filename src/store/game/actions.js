@@ -7,6 +7,7 @@ import {
   SET_ACTIVE_QUESTION_ID,
   SET_IS_QUESTION_RESULT_VISIBLE,
   SET_SCORE,
+  SET_SHOULD_BLOCK_NAVIGATION,
 } from './types';
 
 function resetGameState() {
@@ -64,6 +65,13 @@ function setScore(score) {
   };
 }
 
+function setShouldBlockNavigation(shouldBlock) {
+  return {
+    type: SET_SHOULD_BLOCK_NAVIGATION,
+    payload: { shouldBlock },
+  };
+}
+
 export {
   resetGameState,
   initializeGameRequest,
@@ -73,4 +81,5 @@ export {
   setActiveQuestionId,
   setIsQuestionResultVisible,
   setScore,
+  setShouldBlockNavigation,
 };
