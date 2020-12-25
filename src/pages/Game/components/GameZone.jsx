@@ -12,7 +12,7 @@ import {
 } from 'store/game/selectors';
 import { chooseAnswer } from 'store/game/operations';
 import { openDrawer } from 'store/common/operations';
-import { IconButton } from 'components';
+import { IconButton, AnswerCell } from 'components';
 import { Hamburger } from 'assets/icons';
 
 const Container = styled.div`
@@ -55,86 +55,21 @@ const Answers = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, auto);
-  grid-gap: 3.2rem;
+  grid-row-gap: 3.2rem;
   width: 100%;
   max-width: 84rem;
 
   ${({ theme }) => theme.breakpoints.down('md')} {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    grid-gap: 2rem;
+    grid-row-gap: 2rem;
   }
 
   ${({ theme }) => theme.breakpoints.down('sm')} {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    grid-gap: 8px;
+    grid-row-gap: 8px;
   }
-`;
-
-const AnswerCell = styled.div`
-  background-color: ${({ theme, selected, correct, wrong }) => {
-    if (correct) {
-      return theme.colors.success.light;
-    }
-
-    if (wrong) {
-      return theme.colors.error.light;
-    }
-
-    if (selected) {
-      return theme.colors.primary.xLight;
-    }
-
-    return theme.colors.common.white;
-  }};
-  cursor: pointer;
-  position: relative;
-  padding: 2.45rem 3.2rem;
-  border-width: 1px;
-  border-style: solid;
-  border-color: ${({ theme, selected, correct, wrong }) => {
-    if (correct) {
-      return theme.colors.success.main;
-    }
-
-    if (wrong) {
-      return theme.colors.error.main;
-    }
-
-    if (selected) {
-      return theme.colors.primary.main;
-    }
-
-    return theme.colors.common.black40;
-  }};
-
-  ${({ theme }) => theme.breakpoints.down('xl')} {
-    padding: 2rem 3rem;
-  }
-
-  ${({ theme }) => theme.breakpoints.down('sm')} {
-    padding: 2rem 2.4rem;
-  }
-
-  &:hover {
-    border-color: ${({ theme, correct, wrong }) => {
-      if (correct) {
-        return theme.colors.success.main;
-      }
-
-      if (wrong) {
-        return theme.colors.error.main;
-      }
-
-      return theme.colors.primary.main;
-    }};
-  }
-`;
-
-const AnswerSymbol = styled.span`
-  color: ${({ theme }) => theme.colors.primary.main};
-  margin-right: 8px;
 `;
 
 const HamburgerButton = styled(IconButton)`
@@ -184,16 +119,15 @@ function GameZone() {
               !correctAnswerIds.includes(id)
             }
             selected={selectedAnswerId === id}
-            onClick={() => {
+            handleClick={() => {
               if (!selectedAnswerId) {
                 dispatch(chooseAnswer(id, history));
               }
             }}
+            label={label}
+            text={text}
             key={id}
-          >
-            <AnswerSymbol>{label}</AnswerSymbol>
-            {text}
-          </AnswerCell>
+          />
         ))}
       </Answers>
     </Container>

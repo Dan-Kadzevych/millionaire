@@ -43,9 +43,8 @@ function PrizesZone() {
             key={id}
             disabled={answeredQuestionsIds.includes(id)}
             active={id === activeQuestionId}
-          >
-            {prize}
-          </PrizeCell>
+            text={prize}
+          />
         ))}
       </Prizes>
     </Container>
