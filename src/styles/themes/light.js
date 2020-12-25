@@ -1,4 +1,7 @@
+import defaultTheme from './defaultTheme';
+
 const lightTheme = {
+  ...defaultTheme,
   colors: {
     common: {
       black: '#000',

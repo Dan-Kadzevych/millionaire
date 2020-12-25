@@ -17,28 +17,75 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 8rem;
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    padding: 0 6rem;
+  }
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    padding: 8rem 1.6rem 6.4rem;
+  }
 `;
 
 const ContentContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const ImageContainer = styled.div`
+  margin-right: 3.2rem;
+  width: 50%;
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    margin-bottom: 2.4rem;
+    margin-right: 0;
+    width: 70%;
+  }
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    margin-bottom: 2.4rem;
+    margin-right: 0;
+    width: 100%;
+  }
 `;
 
 const Image = styled.img`
-  margin-right: 3.2rem;
-  width: 50%;
+  max-width: 100%;
+  height: auto;
 `;
 
 const TextContent = styled.div`
-  flex: 50%;
+  width: 50%;
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    width: 100%;
+    align-items: stretch;
+    justify-content: space-between;
+  }
 `;
 
 function Home() {
   return (
     <Container>
       <ContentContainer>
-        <Image src={logo} alt="" />
+        <ImageContainer>
+          <Image src={logo} alt="Millionaire" />
+        </ImageContainer>
         <TextContent>
           <H1>Who wants to be a millionaire?</H1>
           <Button as={Link} to="/game">

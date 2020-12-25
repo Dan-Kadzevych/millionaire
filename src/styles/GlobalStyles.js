@@ -21,6 +21,10 @@ const GlobalStyle = createGlobalStyle`
   
   html {
     font-size: 62.5%;
+    
+    ${({ theme }) => theme.breakpoints.down('lg')} {
+      font-size: 50%
+    }
   }
 `;
 
