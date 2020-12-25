@@ -8,7 +8,7 @@ import { Button, H1 } from 'components';
 
 const Container = styled.div`
   height: 100vh;
-  min-height: 40rem;
+  min-height: 60rem;
   background: linear-gradient(
     to right bottom,
     ${({ theme }) => theme.colors.common.white} 50%,
@@ -83,11 +83,11 @@ const TextContent = styled.div`
   }
 `;
 
-const StyledH1 = styled(H1)`
-  ${({ theme }) => theme.breakpoints.down('sm')} {
-    margin-bottom: auto;
-  }
-`;
+// const StyledH1 = styled(H1)`
+//   ${({ theme }) => theme.breakpoints.down('sm')} {
+//     margin-bottom: auto;
+//   }
+// `;
 
 function Home() {
   return (
@@ -97,7 +97,7 @@ function Home() {
           <Image src={logo} alt="Millionaire" />
         </ImageContainer>
         <TextContent>
-          <StyledH1>Who wants to be a millionaire?</StyledH1>
+          <H1>Who wants to be a millionaire?</H1>
           <Button as={Link} to="/game">
             Start
           </Button>
