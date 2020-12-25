@@ -8,6 +8,7 @@ import { Button, H1 } from 'components';
 
 const Container = styled.div`
   height: 100vh;
+  min-height: 40rem;
   background: linear-gradient(
     to right bottom,
     ${({ theme }) => theme.colors.common.white} 50%,

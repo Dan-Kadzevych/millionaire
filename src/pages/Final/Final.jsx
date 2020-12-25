@@ -10,6 +10,7 @@ import { Button, H1 } from 'components';
 
 const Container = styled.div`
   height: 100vh;
+  min-height: 40rem;
   background: ${({ theme }) => theme.colors.background.default};
   display: flex;
   justify-content: center;

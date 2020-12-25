@@ -14,6 +14,7 @@ import { GameZone, PrizesZone } from './components';
 
 const Container = styled.div`
   height: 100vh;
+  min-height: 65rem;
   display: flex;
 `;
 

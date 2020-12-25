@@ -133,12 +133,12 @@ function AnswerCell({ correct, wrong, selected, handleClick, label, text }) {
 }
 
 AnswerCell.propTypes = {
-  correct: PropTypes.string.isRequired,
+  correct: PropTypes.bool.isRequired,
   wrong: PropTypes.bool.isRequired,
   selected: PropTypes.bool.isRequired,
-  handleClick: PropTypes.bool.isRequired,
-  label: PropTypes.bool.isRequired,
-  text: PropTypes.bool.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  label: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default AnswerCell;
