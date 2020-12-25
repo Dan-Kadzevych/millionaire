@@ -28,13 +28,16 @@ const StyledCell = styled.div`
   background-color: ${({ theme }) => theme.colors.common.white};
   padding: 0.8rem 2.4rem;
   text-align: center;
-  width: 60%;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
   z-index: 21;
-  border-width: 1px;
-  border-style: solid;
   border-radius: 8px;
-  border-color: ${({ theme, active }) =>
-    active ? theme.colors.primary.main : theme.colors.common.black40};
+  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
+  }
+
   color: ${({ active, disabled, theme }) => {
     if (disabled) {
       return theme.colors.text.disabled;
@@ -48,13 +51,30 @@ const StyledCell = styled.div`
   }};
 `;
 
+const FakeBorder = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 22;
+  width: 60%;
+  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  background-color: ${({ theme, active }) =>
+    active ? theme.colors.primary.main : theme.colors.common.black40};
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
+  }
+`;
+
 function PrizeCell({ text, disabled, active }) {
   return (
     <Container>
+      <FakeBorder active={active}>
+        <StyledCell disabled={disabled} active={active}>
+          {text}
+        </StyledCell>
+      </FakeBorder>
       <Line active={active} />
-      <StyledCell disabled={disabled} active={active}>
-        {text}
-      </StyledCell>
     </Container>
   );
 }
