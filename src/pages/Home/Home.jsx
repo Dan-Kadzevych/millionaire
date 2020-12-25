@@ -23,7 +23,7 @@ const Container = styled.div`
   }
 
   ${({ theme }) => theme.breakpoints.down('sm')} {
-    padding: 8rem 1.6rem 6.4rem;
+    padding: 10rem 2.5rem 7.5rem;
   }
 `;
 
@@ -36,6 +36,7 @@ const ContentContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
   }
 `;
 
@@ -52,7 +53,7 @@ const ImageContainer = styled.div`
   ${({ theme }) => theme.breakpoints.down('sm')} {
     margin-bottom: 2.4rem;
     margin-right: 0;
-    width: 100%;
+    width: 90%;
   }
 `;
 
@@ -70,12 +71,20 @@ const TextContent = styled.div`
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    width: 70%;
   }
 
   ${({ theme }) => theme.breakpoints.down('sm')} {
     width: 100%;
     align-items: stretch;
     justify-content: space-between;
+    flex: 1;
+  }
+`;
+
+const StyledH1 = styled(H1)`
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    margin-bottom: auto;
   }
 `;
 
@@ -87,7 +96,7 @@ function Home() {
           <Image src={logo} alt="Millionaire" />
         </ImageContainer>
         <TextContent>
-          <H1>Who wants to be a millionaire?</H1>
+          <StyledH1>Who wants to be a millionaire?</StyledH1>
           <Button as={Link} to="/game">
             Start
           </Button>

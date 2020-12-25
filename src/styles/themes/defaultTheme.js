@@ -14,6 +14,9 @@ const defaultTheme = {
     down: (key) => {
       return `@media (max-width: ${breakpointValues[key]}px)`;
     },
+    between: (key1, key2) => {
+      return `@media (min-width: ${breakpointValues[key1]}px) and (max-width: ${breakpointValues[key2]}px)`;
+    },
   },
 };
 

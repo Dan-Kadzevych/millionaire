@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledButton = styled.button`
+const Button = styled.button`
   display: inline-block;
   text-decoration: none;
   text-align: center;
@@ -25,4 +25,4 @@ const StyledButton = styled.button`
   }
 `;
 
-export default StyledButton;
+export default Button;

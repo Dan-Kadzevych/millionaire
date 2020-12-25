@@ -7,10 +7,19 @@ import {
   getActiveQuestionId,
   getAnsweredQuestionsIds,
 } from 'store/game/selectors';
+import { PrizeCell } from 'components';
 
 const Container = styled.div`
   flex-basis: 37.6rem;
   flex-grow: 1;
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    display: none;
+  }
+
+  ${({ theme }) => theme.breakpoints.down('xl')} {
+    flex-basis: 30rem;
+  }
 `;
 
 const Prizes = styled.div`
@@ -19,31 +28,6 @@ const Prizes = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100%;
-`;
-
-const PrizeCell = styled.div`
-  background-color: ${({ theme }) => theme.colors.common.white};
-  padding: 0.8rem 2.4rem;
-  text-align: center;
-  width: 24rem;
-  border: 1px solid
-    ${({ theme, active }) =>
-      active ? theme.colors.primary.main : theme.colors.common.black40};
-  color: ${({ active, disabled, theme }) => {
-    if (disabled) {
-      return theme.colors.text.disabled;
-    }
-
-    if (active) {
-      return theme.colors.primary.main;
-    }
-
-    return theme.colors.text.primary;
-  }};
-
-  &:not(:last-child) {
-    margin-bottom: 0.8rem;
-  }
 `;
 
 function PrizesZone() {

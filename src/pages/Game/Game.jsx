@@ -5,6 +5,7 @@ import { Prompt } from 'react-router-dom';
 import { useBeforeunload } from 'react-beforeunload';
 
 import { initializeGame } from 'store/game/operations';
+import { Drawer } from 'layout';
 import {
   getIsConfigLoading,
   getShouldBlockNavigation,
@@ -33,6 +34,7 @@ function Game() {
 
   return (
     <Container>
+      <Drawer />
       <Prompt
         when={shouldBlockNavigation}
         message="You'll lose your progress!"
