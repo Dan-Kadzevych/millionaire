@@ -52,9 +52,9 @@ function initializeGameSuccess(
     },
   },
 ) {
-  const firstQuestion = questionIds
-    .map((id) => questionsById[id])
-    .sort(sortByOrder)[0];
+  const firstQuestion = sortByOrder(
+    questionIds.map((id) => questionsById[id]),
+  )[0];
 
   return {
     ...state,

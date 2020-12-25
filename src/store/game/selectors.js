@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
-import sortBy from 'lodash/sortBy';
 import takeWhile from 'lodash/takeWhile';
+
+import { sortByOrder } from 'utils/helpers';
 
 const getQuestionsById = (state) => state.game.questions.byId;
 const getQuestionsIds = (state) => state.game.questions.allIds;
@@ -17,10 +18,7 @@ const getSortedQuestionsList = createSelector(
   getQuestionsById,
   getQuestionsIds,
   (questionsById, questionsIds) =>
-    sortBy(
-      questionsIds.map((id) => questionsById[id]),
-      'orderPosition',
-    ),
+    sortByOrder(questionsIds.map((id) => questionsById[id])),
 );
 
 const getActiveQuestion = createSelector(
@@ -33,10 +31,7 @@ const getSortedActiveQuestionAnswers = createSelector(
   getActiveQuestion,
   getAnswersById,
   (activeQuestion, answersById) =>
-    sortBy(
-      activeQuestion.answers.map((id) => answersById[id]),
-      'orderPosition',
-    ),
+    sortByOrder(activeQuestion.answers.map((id) => answersById[id])),
 );
 
 const getActiveQuestionCorrectAnswerIds = createSelector(

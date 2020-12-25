@@ -37,8 +37,8 @@
       "id": "2",
       "text": "What is the capital of Ukraine?",
       "correctAnswerIds": ["342"],
-      "orderPosition": "1",
-      "prize": "$1,000",
+      "orderPosition": "3",
+      "prize": "$2,000",
       "answers": [
         {
           "id": "342",
@@ -71,7 +71,7 @@
       "text": "Choose the cities of Ukraine",
       "correctAnswerIds": ["6"],
       "orderPosition": "2",
-      "prize": "$2,000",
+      "prize": "$1,000",
       "answers": [
         {
           "id": "5",
@@ -103,7 +103,7 @@
       "id": "4",
       "text": "Choose the cities of Ukraine",
       "correctAnswerIds": ["10"],
-      "orderPosition": "2",
+      "orderPosition": "4",
       "prize": "$4,000",
       "answers": [
         {
@@ -136,7 +136,7 @@
       "id": "5",
       "text": "Choose the cities of Ukraine",
       "correctAnswerIds": ["14"],
-      "orderPosition": "2",
+      "orderPosition": "5",
       "prize": "$8,000",
       "answers": [
         {
@@ -169,7 +169,7 @@
       "id": "6",
       "text": "Choose the cities of Ukraine",
       "correctAnswerIds": ["18"],
-      "orderPosition": "2",
+      "orderPosition": "6",
       "prize": "$16,000",
       "answers": [
         {
@@ -202,7 +202,7 @@
       "id": "7",
       "text": "Choose the cities of Ukraine",
       "correctAnswerIds": ["22"],
-      "orderPosition": "2",
+      "orderPosition": "7",
       "prize": "$32,000",
       "answers": [
         {
@@ -235,7 +235,7 @@
       "id": "8",
       "text": "Choose the cities of Ukraine",
       "correctAnswerIds": ["26"],
-      "orderPosition": "2",
+      "orderPosition": "8",
       "prize": "$64,000",
       "answers": [
         {
@@ -268,7 +268,7 @@
       "id": "9",
       "text": "Choose the cities of Ukraine",
       "correctAnswerIds": ["30"],
-      "orderPosition": "2",
+      "orderPosition": "9",
       "prize": "$125,000",
       "answers": [
         {
@@ -301,7 +301,7 @@
       "id": "10",
       "text": "Choose the cities of Ukraine",
       "correctAnswerIds": ["123"],
-      "orderPosition": "2",
+      "orderPosition": "10",
       "prize": "$250,000",
       "answers": [
         {
@@ -334,7 +334,7 @@
       "id": "103",
       "text": "Choose the cities of Ukraine",
       "correctAnswerIds": ["63"],
-      "orderPosition": "2",
+      "orderPosition": "11",
       "prize": "$500,000",
       "answers": [
         {
@@ -367,7 +367,7 @@
       "id": "33",
       "text": "Choose the cities of Ukraine",
       "correctAnswerIds": ["72"],
-      "orderPosition": "2",
+      "orderPosition": "12",
       "prize": "$1,000,000",
       "answers": [
         {
