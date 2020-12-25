@@ -1,9 +1,9 @@
-How To Download:
+## How To Download:
 
-git clone https://github.com/Dan-Kadzevych/millionaire.git
+* git clone https://github.com/Dan-Kadzevych/millionaire.git;
 
-How To Run:
+## How To Run:
 
-npm i
+* npm i;
 
-npm start
+* npm start;
