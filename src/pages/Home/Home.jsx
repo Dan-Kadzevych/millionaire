@@ -8,7 +8,7 @@ import { Button, H1 } from 'components';
 
 const Container = styled.div`
   height: 100vh;
-  min-height: 60rem;
+  min-height: 40rem;
   background: linear-gradient(
     to right bottom,
     ${({ theme }) => theme.colors.common.white} 50%,
@@ -21,6 +21,7 @@ const Container = styled.div`
 
   ${({ theme }) => theme.breakpoints.down('md')} {
     padding: 0 6rem;
+    min-height: 60rem;
   }
 
   ${({ theme }) => theme.breakpoints.down('sm')} {

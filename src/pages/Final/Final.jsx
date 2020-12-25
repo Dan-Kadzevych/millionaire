@@ -19,6 +19,7 @@ const Container = styled.div`
 
   ${({ theme }) => theme.breakpoints.down('md')} {
     padding: 0 6rem;
+    min-height: 60rem;
   }
 
   ${({ theme }) => theme.breakpoints.down('sm')} {
