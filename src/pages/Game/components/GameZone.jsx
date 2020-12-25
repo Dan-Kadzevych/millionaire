@@ -77,6 +77,7 @@ const HamburgerButton = styled(IconButton)`
   top: 2rem;
   right: 2rem;
   display: none;
+  z-index: 100;
 
   ${({ theme }) => theme.breakpoints.down('md')} {
     display: inline-block;

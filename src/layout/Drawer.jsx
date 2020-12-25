@@ -43,6 +43,7 @@ const CrossButton = styled(IconButton)`
   top: 2rem;
   right: 2rem;
   display: none;
+  z-index: 1100;
 
   ${({ theme }) => theme.breakpoints.down('md')} {
     display: inline-block;
