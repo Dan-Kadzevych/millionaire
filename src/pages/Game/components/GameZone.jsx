@@ -59,6 +59,12 @@ const Answers = styled.div`
   width: 100%;
   max-width: 84rem;
 
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 2rem;
+  }
+
   ${({ theme }) => theme.breakpoints.down('sm')} {
     grid-template-columns: 1fr;
     grid-template-rows: auto;

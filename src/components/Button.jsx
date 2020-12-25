@@ -16,6 +16,11 @@ const Button = styled.button`
   outline: none;
   cursor: pointer;
 
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+  }
+
   &:hover {
     background-color: ${({ theme }) => theme.colors.primary.light};
   }

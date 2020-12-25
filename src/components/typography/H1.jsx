@@ -16,6 +16,11 @@ const StyledH1 = styled.h1`
     line-height: 5.7rem;
     margin-bottom: 5.9rem;
   }
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    font-size: 3.5rem;
+    line-height: 3.9rem;
+  }
 `;
 
 export default StyledH1;

@@ -15,21 +15,64 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 8rem;
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    padding: 0 6rem;
+  }
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    padding: 10rem 2.5rem 7.5rem;
+  }
 `;
 
 const ContentContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
 `;
 
 const Image = styled.img`
   margin-right: 3.2rem;
   width: 50%;
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    margin-bottom: 2.4rem;
+    margin-right: 0;
+    width: 70%;
+  }
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    margin-bottom: 4rem;
+    margin-right: 0;
+    width: 90%;
+  }
 `;
 
 const TextContent = styled.div`
   width: 50%;
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 70%;
+  }
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    width: 100%;
+    align-items: stretch;
+    justify-content: space-between;
+    flex: 1;
+  }
 `;
 
 const TotalText = styled.span`
@@ -37,6 +80,11 @@ const TotalText = styled.span`
   line-height: 3.712rem;
   font-weight: 600;
   opacity: 0.5;
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
 `;
 
 function Final() {
@@ -51,8 +99,10 @@ function Final() {
       <ContentContainer>
         <Image src={logo} alt="" />
         <TextContent>
-          <TotalText>Total score:</TotalText>
-          <H1>{score} earned</H1>
+          <div>
+            <TotalText>Total score:</TotalText>
+            <H1 as="div">{score} earned</H1>
+          </div>
           <Button as={Link} to="/game">
             Try Again
           </Button>
