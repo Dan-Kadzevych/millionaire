@@ -32,6 +32,7 @@ const StyledCell = styled.div`
   z-index: 21;
   border-width: 1px;
   border-style: solid;
+  border-radius: 8px;
   border-color: ${({ theme, active }) =>
     active ? theme.colors.primary.main : theme.colors.common.black40};
   color: ${({ active, disabled, theme }) => {

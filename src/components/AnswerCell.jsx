@@ -56,6 +56,7 @@ const StyledCell = styled.div`
   padding: 2.45rem 3.2rem;
   border-width: 1px;
   border-style: solid;
+  border-radius: 8px;
   border-color: ${({ theme, selected, correct, wrong }) => {
     if (correct) {
       return theme.colors.success.main;
