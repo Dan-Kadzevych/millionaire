@@ -83,12 +83,6 @@ const TextContent = styled.div`
   }
 `;
 
-// const StyledH1 = styled(H1)`
-//   ${({ theme }) => theme.breakpoints.down('sm')} {
-//     margin-bottom: auto;
-//   }
-// `;
-
 function Home() {
   return (
     <Container>
