@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/millionaire/static/js/main.1d301129.chunk.js",
-    "main.js.map": "/millionaire/static/js/main.1d301129.chunk.js.map",
+    "main.js": "/millionaire/static/js/main.931a16ac.chunk.js",
+    "main.js.map": "/millionaire/static/js/main.931a16ac.chunk.js.map",
     "runtime-main.js": "/millionaire/static/js/runtime-main.47dc32cf.js",
     "runtime-main.js.map": "/millionaire/static/js/runtime-main.47dc32cf.js.map",
-    "static/js/2.7e062bcf.chunk.js": "/millionaire/static/js/2.7e062bcf.chunk.js",
-    "static/js/2.7e062bcf.chunk.js.map": "/millionaire/static/js/2.7e062bcf.chunk.js.map",
+    "static/js/2.cdf799f7.chunk.js": "/millionaire/static/js/2.cdf799f7.chunk.js",
+    "static/js/2.cdf799f7.chunk.js.map": "/millionaire/static/js/2.cdf799f7.chunk.js.map",
     "index.html": "/millionaire/index.html",
-    "static/js/2.7e062bcf.chunk.js.LICENSE.txt": "/millionaire/static/js/2.7e062bcf.chunk.js.LICENSE.txt",
+    "static/js/2.cdf799f7.chunk.js.LICENSE.txt": "/millionaire/static/js/2.cdf799f7.chunk.js.LICENSE.txt",
     "static/media/hand.db4d6f4e.png": "/millionaire/static/media/hand.db4d6f4e.png"
   },
   "entrypoints": [
     "static/js/runtime-main.47dc32cf.js",
-    "static/js/2.7e062bcf.chunk.js",
-    "static/js/main.1d301129.chunk.js"
+    "static/js/2.cdf799f7.chunk.js",
+    "static/js/main.931a16ac.chunk.js"
   ]
 }
