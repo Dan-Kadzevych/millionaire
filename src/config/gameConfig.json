@@ -2,32 +2,32 @@
   "questions": [
     {
       "id": "1",
-      "text": "What is the capital of Ukraine?",
+      "text": "How many seconds are in a minute?",
       "correctAnswerIds": ["1"],
       "orderPosition": "1",
       "prize": "$500",
       "answers": [
         {
           "id": "1",
-          "text": "Kyiv",
+          "text": "10",
           "label": "A",
           "orderPosition": "1"
         },
         {
           "id": "2",
-          "text": "Odessa",
+          "text": "20",
           "label": "B",
           "orderPosition": "2"
         },
         {
           "id": "3",
-          "text": "Moscow",
+          "text": "30",
           "label": "C",
           "orderPosition": "3"
         },
         {
           "id": "4",
-          "text": "New York",
+          "text": "60",
           "label": "D",
           "orderPosition": "4"
         }
@@ -317,7 +317,7 @@
           "orderPosition": "2"
         },
         {
-          "id": "341",
+          "id": "333",
           "text": "Uganda",
           "label": "C",
           "orderPosition": "3"
