@@ -7,3 +7,6 @@
 * npm i;
 
 * npm start;
+
+## Github-pages
+https://dan-kadzevych.github.io/millionaire/
