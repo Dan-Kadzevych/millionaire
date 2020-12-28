@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import configureStore from 'store/configureStore';
@@ -16,7 +16,7 @@ function App() {
     <Provider store={store}>
       <ThemeProvider theme={themes.light}>
         <GlobalStyle />
-        <Router>
+        <Router basename="/">
           <Route exact path="/">
             <Home />
           </Route>
