@@ -3,7 +3,7 @@
     {
       "id": "1",
       "text": "How many seconds are in a minute?",
-      "correctAnswerIds": ["1"],
+      "correctAnswerIds": ["4"],
       "orderPosition": "1",
       "prize": "$500",
       "answers": [
