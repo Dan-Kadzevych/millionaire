@@ -21,12 +21,14 @@ const Button = styled.button`
     line-height: 2.1rem;
   }
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.primary.light};
+  &&:active {
+    background-color: ${({ theme }) => theme.colors.primary.dark};
   }
 
-  &:active {
-    background-color: ${({ theme }) => theme.colors.primary.dark};
+  @media (pointer: fine) {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.primary.light};
+    }
   }
 `;
 

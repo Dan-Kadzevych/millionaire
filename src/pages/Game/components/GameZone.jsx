@@ -82,12 +82,6 @@ const HamburgerButton = styled(IconButton)`
   ${({ theme }) => theme.breakpoints.down('md')} {
     display: inline-block;
   }
-
-  &:hover {
-    & path {
-      fill: ${({ theme }) => theme.colors.primary.main};
-    }
-  }
 `;
 
 const HamburgerIcon = styled(Hamburger)`

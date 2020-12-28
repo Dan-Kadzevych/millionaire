@@ -47,12 +47,6 @@ const CrossButton = styled(IconButton)`
   ${({ theme }) => theme.breakpoints.down('md')} {
     display: inline-block;
   }
-
-  &:hover {
-    & path {
-      fill: ${({ theme }) => theme.colors.primary.main};
-    }
-  }
 `;
 
 const CrossIcon = styled(Cross)`
