@@ -16,7 +16,7 @@ function App() {
     <Provider store={store}>
       <ThemeProvider theme={themes.light}>
         <GlobalStyle />
-        <Router basename="/">
+        <Router basename="/millionaire">
           <Route exact path="/">
             <Home />
           </Route>
